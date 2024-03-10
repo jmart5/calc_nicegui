@@ -1,4 +1,4 @@
 # calc_nicegui
 
 ### Description
-This repository uses NiceGUI to create a simple calculator.
+This repository uses NiceGUI to create several apps.
