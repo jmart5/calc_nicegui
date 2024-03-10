@@ -34,7 +34,7 @@ ui.button('Calculate', on_click=lambda: ui.notify(result.text))
 a = ui.input(label='Text', placeholder='start typing')
 ui.button('Show A', on_click=lambda: ui.notify(a.value))
 
-b = ui.input(label='Text', placeholder='start typing')
+b = ui.input(label='Hi mom', placeholder='start typing')
 ui.button('Show B', on_click=lambda: ui.notify(b.value))
 
 temp = ui.label()
