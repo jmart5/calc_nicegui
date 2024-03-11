@@ -124,27 +124,44 @@ ui.input("task").bind_value(todo, "task")
 ui.label().bind_text(todo, "task")  # Show
 
 
-# Math Test
-numbers = [2,3]
-temp_number = 44
+##### Math Test #####
+# Dictionary that stores values from inputs
+data = {"numbers": [1,2], "temp_number": "", "x": 0, "y": 0, "z": 0, 'sum': None}
 
-ui.input("Enter a number here")
+# Inputs
+x = ui.input("X: Enter a number here")
+y = ui.input("Y: Enter a number ")
+z = ui.input("Z: Enter another number")
 
 @ui.refreshable
 def number_ui() -> None:
-    ui.label(', '.join(str(n) for n in sorted(numbers)))
+    ui.label(', '.join(str(n) for n in sorted(data['numbers'])))
 
 def add_number() -> None:
-    numbers.append(int(temp_number))
+    data['numbers'].append(int(x.value))
     #numbers.append(random.randint(0, 100))
     number_ui.refresh()
 
+def get_number_from_input() -> None:
+    temp_number = int(x.value)
+
+def sum_xyz() -> None:
+    #Save the user input values
+    data['x'] = int(x.value)
+    data['y'] = int(y.value)
+    data['z'] = int(z.value)
+
+    #Perform calculation and notification 
+    ans = int(data['x']) +int(data['y'])  + int(data['z'])
+    ui.notify(ans)
+
 # Create a function to run multiple functions (use this in the on_click trigger)
 def multiFunction() -> None:
-    ui.notify(numbers)
     add_number()
+    #get_number_from_input()
+    ui.notify(data['numbers'])
 
 ui.button(text="Solve", on_click=lambda e: multiFunction())
-
+ui.button(text="Get Sum of X Y Z", on_click=sum_xyz)
 
 ui.run()
