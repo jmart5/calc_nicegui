@@ -1,5 +1,6 @@
 from nicegui import ui
 import pandas as pd
+import random
 
 ui.page_title("NiceGUI Practice")
 
@@ -121,5 +122,29 @@ class Todo:
 todo = Todo()
 ui.input("task").bind_value(todo, "task")
 ui.label().bind_text(todo, "task")  # Show
+
+
+# Math Test
+numbers = [2,3]
+temp_number = 44
+
+ui.input("Enter a number here")
+
+@ui.refreshable
+def number_ui() -> None:
+    ui.label(', '.join(str(n) for n in sorted(numbers)))
+
+def add_number() -> None:
+    numbers.append(int(temp_number))
+    #numbers.append(random.randint(0, 100))
+    number_ui.refresh()
+
+# Create a function to run multiple functions (use this in the on_click trigger)
+def multiFunction() -> None:
+    ui.notify(numbers)
+    add_number()
+
+ui.button(text="Solve", on_click=lambda e: multiFunction())
+
 
 ui.run()
