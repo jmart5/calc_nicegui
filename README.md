@@ -3,6 +3,7 @@
 ### Description
 This repository uses NiceGUI to create several apps.
 
+---
 ### Tips
 This is a collection of solutions that I have discovered while working with NiceGUI.
 ##### Update a Text Element
