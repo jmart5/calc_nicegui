@@ -61,3 +61,19 @@ The next example uses a lambda function to trigger a notification. The uploaded 
 ```python
 ui.upload(on_upload=lambda e: ui.notify(f'Uploaded {e.name}'))
 ```
+
+Save the uploaded file to the current working directory using `SpooledTemporaryFile`. The contents of the file are saved to the `new_file.csv` using the `open()` function.
+```python
+def do_something(e: events.UploadEventArguments):
+    ui.notify(f'Uploaded {e.name}')
+
+    with SpooledTemporaryFile() as spooled_file:
+        e.content.seek(0)   # Move the pointer to the beginning of the file
+
+        # Make a new file to save the content into
+        with open("new_file.csv", "wb") as nf:
+            shutil.copyfileobj(e.content, nf)
+
+
+ui.upload(on_upload=do_something).props('accept=.csv').classes('max-w-full')
+```
