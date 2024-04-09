@@ -44,8 +44,10 @@ This request will return the contents of the list `stored_information` to the re
 
 ##### Uploading Documents
 The `ui.upload()` component can be used to facilitate file uploading. The UI element looks like this before a file is uploaded:
+
 ![image](https://github.com/jmart5/calc_nicegui/assets/93228623/39bfdfe1-dc40-434f-80e5-da7c91f07c29)
 
 Click the "plus" button for a file browser window to open. The user can select the file they want to update from there. Once a file is selected, the UI element looks like this: 
+
 ![image](https://github.com/jmart5/calc_nicegui/assets/93228623/c1d6228f-9c26-49b4-be03-23ee36c822a5)
 
