@@ -54,17 +54,17 @@ Click the "plus" button for a file browser window to open. The user can select t
 
 Click the "cloud" button to upload the file. This action can be used to trigger functions. 
 
-*Ex. 1* The following example shows how the function uses the `on_upload` attribute to trigger a function called `do_something`:
+**Ex. 1:** The following example shows how the function uses the `on_upload` attribute to trigger a function called `do_something`:
 ```python
 # Triggers do_something() function. The UI only accepts .csv type files. 
 ui.upload(on_upload=do_something).props('accept=.csv').classes('max-w-full')
 ```
-*Ex. 2* The next example uses a lambda function to trigger a notification. The uploaded file is represented by `e` and the name of the file can be retrieved as shown. 
+**Ex. 2:** The next example uses a lambda function to trigger a notification. The uploaded file is represented by `e` and the name of the file can be retrieved as shown. 
 ```python
 ui.upload(on_upload=lambda e: ui.notify(f'Uploaded {e.name}'))
 ```
 
-*Ex. 3* Save the uploaded file to the current working directory using `SpooledTemporaryFile`. The contents of the file are saved to the `new_file.csv` using the `open()` function.
+**Ex. 3:** Save the uploaded file to the current working directory using `SpooledTemporaryFile`. The contents of the file are saved to the `new_file.csv` using the `open()` function.
 ```python
 def do_something(e: events.UploadEventArguments):
     ui.notify(f'Uploaded {e.name}')
@@ -79,3 +79,5 @@ def do_something(e: events.UploadEventArguments):
 
 ui.upload(on_upload=do_something).props('accept=.csv').classes('max-w-full')
 ```
+The `e` object is `<class 'nicegui.events.UploadEventArguments'>` while the content of `e.content` is of type `<class 'tempfile.SpooledTemporaryFile'>`. `tempfile.SpooledTemporaryFile` is a class provided by Python's tempfile module. It's a variant of tempfile. TemporaryFile provides the ability to use a temporary file residing in memory (RAM) until it reaches a certain size threshold, after which it's seamlessly moved to disk. 
+
