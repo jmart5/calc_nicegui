@@ -66,6 +66,10 @@ ui.upload(on_upload=lambda e: ui.notify(f'Uploaded {e.name}'))
 
 **Ex. 3:** Save the uploaded file to the current working directory using `SpooledTemporaryFile`. The contents of the file are saved to the `new_file.csv` using the `open()` function.
 ```python
+from nicegui import ui
+import shutil
+from tempfile import SpooledTemporaryFile
+
 def do_something(e: events.UploadEventArguments):
     ui.notify(f'Uploaded {e.name}')
 
@@ -80,4 +84,6 @@ def do_something(e: events.UploadEventArguments):
 ui.upload(on_upload=do_something).props('accept=.csv').classes('max-w-full')
 ```
 The `e` object is `<class 'nicegui.events.UploadEventArguments'>` while the content of `e.content` is of type `<class 'tempfile.SpooledTemporaryFile'>`. `tempfile.SpooledTemporaryFile` is a class provided by Python's tempfile module. It's a variant of tempfile. TemporaryFile provides the ability to use a temporary file residing in memory (RAM) until it reaches a certain size threshold, after which it's seamlessly moved to disk. 
+
+The code in Example 3 creates a `spooled_file` object. The `shutil` and `tempfile` modules are required to perform this task. The `seek(0)` function is used to move the file pointer to the beginning of the file. This ensures that the file is read from the start. 
 
