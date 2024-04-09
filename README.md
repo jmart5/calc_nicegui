@@ -42,6 +42,7 @@ async def get_info():
 ```
 This request will return the contents of the list `stored_information` to the requester.
 
+---
 ##### Uploading Documents
 The `ui.upload()` component can be used to facilitate file uploading. The UI element looks like this before a file is uploaded:
 
