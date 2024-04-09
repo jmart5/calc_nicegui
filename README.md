@@ -51,3 +51,12 @@ Click the "plus" button for a file browser window to open. The user can select t
 
 ![image](https://github.com/jmart5/calc_nicegui/assets/93228623/c1d6228f-9c26-49b4-be03-23ee36c822a5)
 
+Click the "cloud" button to upload the file. This action can be used to trigger functions. The following example shows how the function uses the `on_upload` attribute to trigger a function called `do_something`:
+```python
+# Triggers do_something() function. The UI only accepts .csv type files. 
+ui.upload(on_upload=do_something).props('accept=.csv').classes('max-w-full')
+```
+The next example uses a lambda function to trigger a notification. The uploaded file is represented by `e` and the name of the file can be retrieved as shown. 
+```python
+ui.upload(on_upload=lambda e: ui.notify(f'Uploaded {e.name}'))
+```
