@@ -52,7 +52,7 @@ Click the "plus" button for a file browser window to open. The user can select t
 
 ![image](https://github.com/jmart5/calc_nicegui/assets/93228623/c1d6228f-9c26-49b4-be03-23ee36c822a5)
 
-Click the "cloud" button to upload the file. This action can be used to trigger functions. 
+Click the "cloud" button to upload the file. This action can be used to trigger functions. You can set it up to automatically upload the file using `auto_upload=True`.  For example: `ui.upload(on_upload=do_something, auto_upload=True).classes('max-w-full')`
 
 **Ex. 1:** The following example shows how the function uses the `on_upload` attribute to trigger a function called `do_something`:
 ```python
