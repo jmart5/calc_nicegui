@@ -4,6 +4,10 @@
 This repository uses NiceGUI to create several apps.
 
 ---
+### Architecture
+Any architecture can be used, but the Model-View-Controller architecture lends itself well to NiceGUI.
+
+---
 ### Tips
 This is a collection of solutions that I have discovered while working with NiceGUI.
 ##### Update a Text Element
