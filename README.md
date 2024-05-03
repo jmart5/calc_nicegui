@@ -91,3 +91,13 @@ The `e` object is `<class 'nicegui.events.UploadEventArguments'>` while the cont
 
 The code in Example 3 creates a `spooled_file` object. The `shutil` and `tempfile` modules are required to perform this task. The `seek(0)` function is used to move the file pointer to the beginning of the file. This ensures that the file is read from the start. 
 
+###    Async Function Example
+```python
+async def make_request():
+    """make_request.
+
+    Send an HTTP request to another process running on the same machine. Use async to allow this function to wait for a response. 
+    """
+    response = await run.io_bound(requests.post, "http://localhost:8080/start_something", timeout=3)
+    ui.notify(response.status_code)
+```
