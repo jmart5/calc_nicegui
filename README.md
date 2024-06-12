@@ -101,3 +101,25 @@ async def make_request():
     response = await run.io_bound(requests.post, "http://localhost:8080/start_something", timeout=3)
     ui.notify(response.status_code)
 ```
+
+Ex. 4 Input Validation
+The following example enforces rules defined using a regular expression and directly in the lambda function. It checks that the string starts with a letter of underscore. Any letter, number, or underscore can be used after the first character. The total length is limited to 40 characters.
+```python
+import re
+from nicegui import ui
+
+def is_valid_input(value):
+    pattern = r'^[a-z_][a-z0-9_]{0,39}$'
+    return re.match(pattern, value) is not None
+
+ui.input(
+    label='Text',
+    placeholder='start typing',
+    on_change=lambda e: result.set_text('you typed: ' + e.value),
+    validation={
+        'Input too long': lambda value: len(value) < 40,
+        'Invalid characters': is_valid_input
+    }
+)
+result = ui.label()
+```
