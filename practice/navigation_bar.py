@@ -1,3 +1,9 @@
+"""
+Simple navigation bar at the top of the page.
+
+Source: https://github.com/zauberzeug/nicegui/discussions/1715
+"""
+
 from nicegui import ui
 
 with ui.header().classes('items-center justify-between'):
