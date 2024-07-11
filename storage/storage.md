@@ -11,3 +11,5 @@ def add_data():
 ui.button('add data', on_click=add_data)
 ```
 This will add the key `new_data` to the user storage dictionary. Note - only the current user will have their user storage updated. Each user storage is unique to a user.
+
+You can update values just like you would in any Python dictionary.
