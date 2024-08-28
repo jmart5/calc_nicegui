@@ -11,3 +11,8 @@ Without this step, the lambda function would use the incorrect index value. If y
 ![image](https://github.com/jmart5/calc_nicegui/assets/93228623/ee89d673-6fe6-4fd9-9b40-c7674bc52dba)
 
 The image above shows that the button created on the same row as the `berry` label succesfully referenced the index of the fruits list corresponding to `berry`.
+
+### Navigation Bar Spacing
+The spacing of items in the navigation bar can be difficult. The code in `navbarv2` produced the following well spaced navbar:
+
+![image](https://github.com/user-attachments/assets/66ca2c08-a20c-48f8-85f2-a9480c3f0132)
