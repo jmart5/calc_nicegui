@@ -129,3 +129,18 @@ This is a very common issue, and the creators of Nicegui wrote an excellent exam
 
 ![image](https://github.com/jmart5/calc_nicegui/assets/93228623/dadbf509-dfb1-446d-8d4b-1d50db8246e5)
 
+###    Updating Label on Drop Down Select Changes
+If you want to dynamically update a label element, you can bind its value to a dictionary. Then use `on_change` to update the value inside the dictionary. This change can be triggered by any of the interactive ui element such as `ui.select` or `ui.switch`. Here's an example:
+```
+label_model = {'status': 'Status: Nothing Selected'}
+option_dict = {'a': 'blue', 'b': 'green', 'c': 'red'}
+with ui.row():
+    x = ui.select(
+        ['a','b','c'],
+        on_change=lambda e: label_model.update(status=f'Status: {option_dict[e.value]}' if e.value else 'Oh No!!!!')
+    )
+    ui.label("Status:").bind_text_from(label_model, 'status')
+```
+
+![dynamic_label](https://github.com/user-attachments/assets/41bf1465-5454-4c15-90d4-eb7b7c00449f)
+
