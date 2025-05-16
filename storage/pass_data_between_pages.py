@@ -2,6 +2,8 @@
 
 Demonstrates how to use app.storage.user to
 pass data between pages in the app.
+
+Example based on: https://github.com/zauberzeug/nicegui/discussions/2324
 """
 from nicegui import app, ui
 
