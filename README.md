@@ -144,3 +144,22 @@ with ui.row():
 
 ![dynamic_label](https://github.com/user-attachments/assets/41bf1465-5454-4c15-90d4-eb7b7c00449f)
 
+### Using blur/focus event
+Nicegui allows you to integrate generic events into many of the UI element. Read the ![docs](https://nicegui.io/documentation/section_action_events#generic_events) for more details. 
+
+In this example, the `blur` event is used to trigger a function call when the `ui.input` element has lost focus. Losing focus in this case occurs whenever the user clicks outside of the text input element. 
+
+```python
+from nicegui import ui
+
+def fetch_table_info(e):
+    table_name = e.sender.value
+    ui.notify(f'Fetching info for: {table_name}')
+
+input_field = ui.input("Table name")
+input_field.on("blur", fetch_table_info)
+
+ui.run()
+```
+
+![blur](https://github.com/user-attachments/assets/3d559f78-6337-484d-bcb9-ab5533e1879f)
